@@ -1,14 +1,38 @@
-import { MidwayConfig, MidwayAppInfo } from '@midwayjs/core';
+import { MidwayConfig } from '@midwayjs/core';
 
-export default (appInfo: MidwayAppInfo) => {
-  return {
-    // use for cookie sign key, should change to your own and keep security
-    keys: appInfo.name + '_1746082743224_4229',
-    egg: {
-      port: 7001,
+export default {
+  // use for cookie sign key, should change to your own and keep security
+  keys: '1746085401525_2824',
+  koa: {
+    port: 7001,
+    globalPrefix: '/api',
+  },
+  jwt: {
+    secret: 'yourVerySecretKeyyasd',
+    sign: {
+      expiresIn: '2d',
     },
-    // security: {
-    //   csrf: false,
-    // },
-  } as MidwayConfig;
-};
+    verify: {
+      // verifyOptions
+    },
+    decode: {
+      // decodeOptions
+    },
+  },
+  swagger: {
+    auth: {
+      authType: 'bearer',
+    },
+  },
+  staticFile: {
+    dirs: {
+      default: {
+        prefix: '/',
+        dir: './public',
+        alias: {
+          '/': '/index.html',
+        },
+      },
+    },
+  },
+} as MidwayConfig;
