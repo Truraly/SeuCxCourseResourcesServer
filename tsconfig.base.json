@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // 生成js 的版本
+    "module": "ESNext", // 生成的module的形式
+    "moduleResolution": "Node", // 模块解析策略，ts默认用node的解析策略，即相对的方式导入
+    "strict": true, // 是否开启严格模式，默认：false。
+    "esModuleInterop": true, // 通过导入内容创建命名空间，实现CommonJS和ES模块之间的互操作性
+    "skipLibCheck": true, // 是否跳过声明文件的类型检查，这可以在编译期间以牺牲类型系统准确性为代价来节省时间，默认：false。
+    "forceConsistentCasingInFileNames": true, //是否区分文件系统大小写规则
+    "baseUrl": ".",
+    "paths": {
+      // 用于设置模块名到基于baseUrl的路径映射
+      "op-agent-prisma": ["packages/prisma/dist"],
+      "op-agent-workflow": ["packages/workflow/dist"],
+      "op-agent-logger": ["packages/logger/dist"]
+    },
+    "experimentalDecorators": true, // 用于指定是否启用实验性的装饰器特性
+    "declaration": true// 生成声明文件，开启后会自动生成声明文件
+  }
+}
